@@ -1,43 +1,50 @@
 [
   {
-    "id":1,
-    "img": "https://links.papareact.com/5j2",
-    "location": "London",
+    "id": 1,
+    "img": "https://links.papareact.com/41m",
+    "location": "London, UK",
     "distance": "45-minute drive"
   },
-  {"id":2,
-    "img": "https://links.papareact.com/1to",
-    "location": "Manchester",
+  {
+    "id": 2,
+    "img": "https://links.papareact.com/kji",
+    "location": "Singapore City, Singapore",
     "distance": "4.5-hour drive"
   },
-  {"id":3,
-    "img": "https://links.papareact.com/40m",
-    "location": "Liverpool",
+  {
+    "id": 3,
+    "img": "https://links.papareact.com/41m",
+    "location": "Hong Kong, China",
     "distance": "4.5-hour drive"
   },
-  {"id":4,
-    "img": "https://links.papareact.com/msp",
-    "location": "York",
+  {
+    "id": 4,
+    "img": "https://links.papareact.com/kji",
+    "location": "Nairobi, Kenya",
     "distance": "4-hour drive"
   },
-  {"id":5,
-    "img": "https://links.papareact.com/2k3",
-    "location": "Cardiff",
+  {
+    "id": 5,
+    "img": "https://links.papareact.com/kji",
+    "location": "Kampala, Uganda",
     "distance": "45-minute drive"
   },
-  {"id":6,
-    "img": "https://links.papareact.com/ynx",
-    "location": "Birkenhead",
+  {
+    "id": 6,
+    "img": "https://links.papareact.com/41m",
+    "location": "Mombasa, Kenya",
     "distance": "4.5-hour drive"
   },
-  {"id":7,
+  {
+    "id": 7,
     "img": "https://links.papareact.com/kji",
-    "location": "Newquay",
+    "location": "Dodoma, Tanzania",
     "distance": "6-hour drive"
   },
-  {"id":8,
+  {
+    "id": 8,
     "img": "https://links.papareact.com/41m",
-    "location": "Hove",
+    "location": "Kisumu, Kenya",
     "distance": "2-hour drive"
   }
 ]

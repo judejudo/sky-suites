@@ -4,11 +4,12 @@ import Header from "./components/Header";
 import { allRoutes } from "./Routes/All_routes";
 import { ProtectedRoute } from "./Routes/protected";
 import { SemiProtectedRoute } from "./Routes/semiProtected";
+import Layout from "./Layout/Layout";
 
 function App() {
   return (
     <>
-      <Header />
+      <Layout>
       <Routes>
         {allRoutes.map((route) => (
           <Route
@@ -26,6 +27,7 @@ function App() {
           />
         ))}
       </Routes>
+      </Layout>
     </>
   );
 }

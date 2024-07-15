@@ -4,12 +4,12 @@ function Banner() {
   const data = [
     {
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
-      caption: "San Francisco",
+        "https://images.pexels.com/photos/9833516/pexels-photo-9833516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      caption: "Hong Kong",
     },
     {
       image:
-        "https://cdn.britannica.com/s:800x450,c:crop/35/204435-138-2F2B745A/Time-lapse-hyper-lapse-Isle-Skye-Scotland.jpg",
+        "https://media.istockphoto.com/id/1299026534/photo/nairobi-kenya.jpg?s=2048x2048&w=is&k=20&c=UKlDTfUWKbNvIDPALg6MLxCCWepvM1q98T7f3DJuf1o=",
       caption: "Scotland",
     },
     {
@@ -30,12 +30,12 @@ function Banner() {
     {
       image:
         "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-      caption: "Darjeeling",
+      caption: "Kenya",
     },
     {
       image:
         "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
-      caption: "San Francisco",
+      caption: "Uganda",
     },
     {
       image:

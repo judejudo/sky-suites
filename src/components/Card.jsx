@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../Contexts/Context";
 import { SearchContext } from "../Contexts/SearchContext";
-import Error from '../pages/Error'
+
 
 const Card = () => {
   const { input } = useContext(SearchContext);
@@ -43,7 +43,7 @@ const Card = () => {
                     <div>
                       <h2 className="font-semibold">{location}</h2>
                       <h2 className="text-gray-500">{name}</h2>
-                      <h2 className="font-semibold">₹{price} per night</h2>
+                      <h2 className="font-semibold">${price} per night</h2>
                     </div>
                   </div>
                 </Link>
