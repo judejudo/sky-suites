@@ -1,9 +1,15 @@
-// @type {} 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode:'jit',
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'luxjost':['Jost', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
+

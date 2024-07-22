@@ -6,12 +6,10 @@ import BookingForm from "../components/Boookingform";
 
 export default function Dashboard() {
   return (
-    <>
-
-        
+    <>  
         <Banner />
-        <Main />
         <BookingForm/>
+        <Main />
         <Card/>
     </>
    

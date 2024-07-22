@@ -1,6 +1,7 @@
 {
-  "name": "airbnb",
+  "name": "sky-suites",
   "version": "0.1.0",
+  "homepage": "https://sky-swift.com/apartments/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -16,6 +17,7 @@
     "bootstrap": "^5.2.1",
     "cors": "^2.8.5",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
     "emailjs-com": "^3.2.0",
     "firebase": "^9.10.0",
     "moment": "^2.29.4",
@@ -57,5 +59,6 @@
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
-  }
+  },
+  "proxy": "https://accounts.vivapayments.com"
 }

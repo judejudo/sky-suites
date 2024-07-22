@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/apartments/static/css/main.e596e321.css",
+    "main.js": "/apartments/static/js/main.f7da8afa.js",
+    "static/js/787.de807f86.chunk.js": "/apartments/static/js/787.de807f86.chunk.js",
+    "static/media/banner3.jpg": "/apartments/static/media/banner3.c85102aa33956dcdf6b3.jpg",
+    "static/media/banner.jpg": "/apartments/static/media/banner.ab9cb6157bc33613614b.jpg",
+    "static/media/banner2.jpg": "/apartments/static/media/banner2.f699c1f5b334b15025d8.jpg",
+    "static/media/sky_logo.png": "/apartments/static/media/sky_logo.0c3a765f085bcb480132.png",
+    "static/media/success.jpg": "/apartments/static/media/success.d4b3f0c9978970cddb35.jpg",
+    "static/media/fail.jpg": "/apartments/static/media/fail.34c0f1fb670bccdb0308.jpg",
+    "index.html": "/apartments/index.html",
+    "main.e596e321.css.map": "/apartments/static/css/main.e596e321.css.map",
+    "main.f7da8afa.js.map": "/apartments/static/js/main.f7da8afa.js.map",
+    "787.de807f86.chunk.js.map": "/apartments/static/js/787.de807f86.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e596e321.css",
+    "static/js/main.f7da8afa.js"
+  ]
+}

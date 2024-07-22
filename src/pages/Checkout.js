@@ -1,47 +1,60 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useDetails from "../Contexts/DescriptionContext";
+import axios from "axios";
 
 const Checkout = () => {
   const [email, setemail] = useState("");
   const [name, setname] = useState("");
   const [number, setnumber] = useState("");
 
-  const { totalPrice } = useDetails();
+  const { setInDate,totalPrice,setOutDate } = useDetails();
+  const clientId = process.env.REACT_APP_CLIENT_ID;
+  const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 
-  const formSubmit = () => {
-    alert("form submit");
-  };
+  const formSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log("Client ID:", clientId);
+      console.log("Client Secret:", clientSecret);
 
-  const handleSubmit = () => {
-    var options = {
-      key: "rzp_test_f89aKkLfxrvOju",
-      key_secret: "8pU4i3wKIqKO6W6O5b0y7PTf",
-      amount: totalPrice * 100,
-      currency: "INR",
-      name: "air-bnb",
-      description: "for testing purpose",
-      handler: function (response) {
-        alert(response.razorpay_payment_id);
-      },
-      prefill: {
-        name: "",
-        email: "",
-        contact: "",
-      },
-      notes: {
-        address: "Razorpay Corporate office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
-    var pay = new window.Razorpay(options);
-    pay.open();
+      // Get access token
+
+      const tokenResponse = await axios.post(
+        "/connect/token",
+        new URLSearchParams({
+          grant_type: "client_credentials",
+        }),
+        {
+          auth: {
+            username: clientId,
+            password: clientSecret,
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
+
+      const accessToken = tokenResponse.data.access_token;
+      console.log("Access Token:", accessToken);
+
+      // Create payment order
+      const orderResponse = await axios.get(
+        "/api/create-orders",
+      );
+      const orderCode = orderResponse.data.orderCode;
+      console.log(orderCode);
+
+      // Redirect to payment page
+      window.location.href = `https://www.vivapayments.com/web2?ref=${orderCode}&color=ff6e01`;
+    } catch (error) {
+      console.error("Error processing payment:", error);
+    }
   };
 
   return (
-    <div className="py-5">
+    <div className="py-5 mt-20">
       <div className=" mx-auto bg-white shadow-lg rounded-lg md:max-w-xl ">
         <div className="">
           <div className="w-full p-4 px-5 py-5">
@@ -129,12 +142,8 @@ const Checkout = () => {
                   Back
                 </Link>
                 <button
-                  type="button"
+                  type="submit"
                   className="h-12 w-48 rounded font-medium text-xs bg-red-400 text-white"
-                  onClick={() => {
-                    handleSubmit();
-                    formSubmit();
-                  }}
                 >
                   Proceed to Payment ({totalPrice})
                 </button>
