@@ -11,38 +11,51 @@ const Checkout = () => {
   const { setInDate,totalPrice,setOutDate } = useDetails();
   const clientId = process.env.REACT_APP_CLIENT_ID;
   const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
-
+////////////////////////////////////////////////////////////////////////////////////////////
   const formSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Client ID:", clientId);
-      console.log("Client Secret:", clientSecret);
+      //////
+      // console.log("Client ID:", clientId);
+      // console.log("Client Secret:", clientSecret);
+      // // Get access token
+      // const tokenResponse = await axios.post(
+      //   "/connect/token",
+      //   new URLSearchParams({
+      //     grant_type: "client_credentials",
+      //   }),
+      //   {
+      //     auth: {
+      //       username: clientId,
+      //       password: clientSecret,
+      //     },
+      //     headers: {
+      //       "Content-Type": "application/x-www-form-urlencoded",
+      //     },
+      //   }
+      // );
 
-      // Get access token
-
-      const tokenResponse = await axios.post(
-        "/connect/token",
-        new URLSearchParams({
-          grant_type: "client_credentials",
-        }),
-        {
-          auth: {
-            username: clientId,
-            password: clientSecret,
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        }
-      );
-
-      const accessToken = tokenResponse.data.access_token;
-      console.log("Access Token:", accessToken);
+      // const accessToken = tokenResponse.data.access_token;
+      // console.log("Access Token:", accessToken);
 
       // Create payment order
-      const orderResponse = await axios.get(
-        "/api/create-orders",
-      );
+// Create payment order
+    const orderResponse = await axios.post(
+      "/create-order",
+      {
+        amount: totalPrice, // Directly use the variable, no curly braces
+        customerTrns: "Transaction description",
+        email: email, // Directly use the variable, no curly braces
+        fullName: name, // Directly use the variable, no curly braces
+        requestLang: "en"
+      },
+      {
+        headers: {
+          "Content-Type": "application/json", // Use application/json for JSON payload
+        },
+      }
+    );
+
       const orderCode = orderResponse.data.orderCode;
       console.log(orderCode);
 

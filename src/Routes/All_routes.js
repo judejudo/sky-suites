@@ -1,6 +1,6 @@
 import Checkout from "../pages/Checkout";
 import ContactUs from "../pages/ContactUs";
-import Dashboard from "../pages/dashboard.page";
+import Dashboard from "../pages/dashboard";
 import Error from "../pages/Error";
 import Login from "../pages/Login";
 import ProductDescription from "../pages/ProductDescription";
@@ -9,18 +9,18 @@ import Success from "../pages/Success"; // Import the SuccessPage component
 import Fail from "../pages/Fail"; // Import the SuccessPage component
 
 export const allRoutes = [
-  {
-    id: "1",
-    path: "/login",
-    component: <Login />,
-    isprotected: false,
-    issemiprotected: true,
-  },
+  // {
+  //   id: "1",
+  //   path: "/login",
+  //   component: <Login />,
+  //   isprotected: false,
+  //   issemiprotected: true,
+  // },
   {
     id: "2",
     path: "/description/:id",
     component: <ProductDescription />,
-    isprotected: true,
+    isprotected: false,
     issemiprotected: false,
   },
   {
@@ -28,7 +28,7 @@ export const allRoutes = [
     path: "/signup",
     component: <Signup />,
     isprotected: false,
-    issemiprotected: true,
+    issemiprotected: false,
   },
   {
     id: "4",
@@ -41,7 +41,7 @@ export const allRoutes = [
     id: "5",
     path: "/checkout",
     component: <Checkout />,
-    isprotected: true,
+    isprotected: false,
     issemiprotected: false,
   },
   {
@@ -55,21 +55,21 @@ export const allRoutes = [
     id: "7",
     path: "/contact",
     component: <ContactUs />,
-    isprotected: true,
+    isprotected: false,
     issemiprotected: false,
   },
   {
     id: "8", // Ensure the ID is unique
     path: "/success",
     component: <Success />, // Use the SuccessPage component
-    isprotected: true,
+    isprotected: false,
     issemiprotected: false,
   },
   {
     id: "9", // Ensure the ID is unique
     path: "/fail",
     component: <Fail />, 
-    isprotected: true,
+    isprotected: false,
     issemiprotected: false,
   },
 ];
