@@ -13,7 +13,7 @@ import { DetailsContextProvider } from "./Contexts/DescriptionContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/apartments">
     <DetailsContextProvider>
       <UserAuthContextProvider>
         <UserProvider>

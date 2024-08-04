@@ -1,8 +1,8 @@
 {
   "name": "sky-suites",
   "version": "0.1.0",
+  "homepage": "/apartments",
   "private": true,
-  "proxy": "https://vivapayment.vercel.app",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",

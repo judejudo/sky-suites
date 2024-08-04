@@ -7,75 +7,37 @@ const Footer = () => {
     <div className="flex  w-full justify-center bg-gray-100 pb-8">
       <div className="flex w-full max-w-screen-xl flex-col items-center px-6">
         {/* grid for links */}
-        <div className="grid  w-full grid-cols-1 gap-4 py-8 text-sm md:grid-cols-3 ">
+        <div className="grid w-full grid-cols-1 gap-4 py-8 text-sm md:grid-cols-3">
           <div className="flex flex-col gap-1">
-            <strong className="font-medium">Support</strong>
+            <strong className="font-medium">Customer Support</strong>
             <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
+              <a href="https://sky-swift.com/contact/" className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 Help Center
-              </span>
+              </a>
             </p>
             <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
+              <a href="https://sky-swift.com/contact/" className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 Get help with a safety issue
-              </span>
+              </a>
             </p>
             <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Air cover
-              </span>
-            </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
+              <a href="https://sky-swift.com/contact/" className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 Anti-discrimination
-              </span>
+              </a>
             </p>
             <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
+              <a href="https://sky-swift.com/contact/" className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 Disablity support
-              </span>
+              </a>
             </p>
             <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
+              <a href="https://sky-swift.com/our-policies/" className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 Cancellation options
-              </span>
-            </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Report neighbourhood concern
-              </span>
+              </a>
             </p>
           </div>
           <div className="flex flex-col gap-1">
-            <strong className="font-medium">Hosting</strong>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                sky-suites your home
-              </span>
-            </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                AirCover for Hosts
-              </span>
-            </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Hosting resources
-              </span>
-            </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Community forum
-              </span>
-            </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Hosting responsibly
-              </span>
-            </p>
-          </div>
-          <div className="flex flex-col gap-1">
-            <strong className="font-medium">sky-suites</strong>
+            <strong className="font-medium">Sky-Swift Apartments</strong>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 Newsroom
@@ -83,24 +45,26 @@ const Footer = () => {
             </p>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                New features
-              </span>
-            </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 Careers
               </span>
             </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Investors
-              </span>
-            </p>
-            <p>
-              <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                sky-suites.org emergency stays
-              </span>
-            </p>
+          </div>
+          <div className="flex flex-col gap-1">
+            <strong className="font-medium">Important Links</strong>
+            <ul className="flex flex-col gap-1">
+              <li className="cursor-pointer text-gray-700 decoration-1 underline-offset-1 hover:underline">
+                <a href="https://sky-swift.com/our-policies/">Privacy Policy</a>
+              </li>
+              <li className="cursor-pointer text-gray-700 decoration-1 underline-offset-1 hover:underline">
+                <a href="https://sky-swift.com/terms-and-conditions/">Terms & Conditions</a>
+              </li>
+              <li className="cursor-pointer text-gray-700 decoration-1 underline-offset-1 hover:underline">
+                <a href="https://sky-swift.com/about-us/">Company details</a>
+              </li>
+              <li className="cursor-pointer text-gray-700 decoration-1 underline-offset-1 hover:underline">
+                <a href="https://sky-swift.com/wp-content/uploads/2023/10/Refund-Claim-Form.pdf">Refund Claim Form</a>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -123,7 +87,7 @@ const Footer = () => {
                   d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
                 />
               </svg>
-              English(IN) <span className="mx-4">₹ INR</span>
+              English(US)
             </div>
             <div className="flex gap-3">
               {/* facebook icon */}
@@ -156,23 +120,8 @@ const Footer = () => {
           </div>
 
           <div className="flex w-full flex-col gap-2 px-1 font-normal text-gray-700 md:w-auto md:flex-row md:items-center md:gap-8">
-            <p className="text-sm">&copy; 2023 sky-suites, Inc.</p>
-            <div>
-              <ul className=" flex gap-6 text-sm text-gray-700">
-                <li className="cursor-pointer text-gray-700 decoration-1 underline-offset-1 hover:underline md:list-disc">
-                  Privacy
-                </li>
-                <li className="cursor-pointer list-disc text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                  Terms
-                </li>
-                <li className="cursor-pointer list-disc text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                  Sitemap
-                </li>
-                <li className="cursor-pointer list-disc text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                  Company details
-                </li>
-              </ul>
-            </div>
+            <p className="text-sm">&copy; {new Date().getFullYear()} Sky-Swift Apartments</p>
+
           </div>
         </div>
       </div>
