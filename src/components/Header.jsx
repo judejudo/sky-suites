@@ -1,42 +1,4 @@
-// import logo from '../assets/sky_logo.png';
-// import React, { useState, useEffect } from 'react';
-// import { useLocation, Link } from 'react-router-dom';
 
-// const Header = () => {
-//   const [isBlurred, setIsBlurred] = useState(false);
-//   const location = useLocation();
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       if (window.scrollY > 50) { // Adjust this value based on when you want the blur to start
-//         setIsBlurred(true);
-//       } else {
-//         setIsBlurred(false);
-//       }
-//     };
-
-//     window.addEventListener('scroll', handleScroll);
-//     return () => window.removeEventListener('scroll', handleScroll);
-//   }, []);
-
-//   const isDashboard = location.pathname === '/';
-//   const textColor = isDashboard ? 'text-white' : 'text-black';
-//   const bgColor = isBlurred ? 'backdrop-blur bg-white/50' : 'bg-transparent';
-
-//   return (
-//     <nav className={`fixed md:top-0 md:left-0 font-luxjost flex z-20 w-full transition-all duration-300 ${bgColor} ${textColor}`}>
-//       <Link to="/"><img src={logo} alt="Logo" className="h-[80px] ml-4" /></Link>
-//       <ul className="flex space-x-9 items-center px-20 ml-auto font-medium">
-//         <li><Link className={`hover:text-orange-500 ${textColor}`} to="/">Home</Link></li>
-//         <li><Link className={`hover:text-orange-500 ${textColor}`} to="/hotelRooms">Hotel Rooms</Link></li>
-//         <li><Link className={`hover:text-orange-500 ${textColor}`} to="/aboutUs">About Us</Link></li>
-//         <li><Link className={`hover:text-orange-500 ${textColor}`} to="/contactUs">Contact Us</Link></li>
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Header;
 
 import logo from '../assets/sky_logo.png';
 import { Link } from 'react-router-dom';
@@ -64,7 +26,7 @@ const Navbar = ({ textColour }) => {
   const bgColor = isBlurred ? 'backdrop-blur bg-white/50' : 'bg-transparent';
 
   return (
-    <nav className={`fixed pt-5 justify-center font-luxjost md:flex top-0 p-4 z-20 w-full transition-all duration-300 ${isBlurred ? 'backdrop-blur bg-orange-100/50 text-orange' : 'bg-transparent text-white '}`}>
+    <nav className={`fixed pt-5 justify-center font-luxjost md:flex top-0 p-4 z-50 w-full transition-all duration-300 ${isBlurred ? 'backdrop-blur bg-orange-100/50 text-orange' : 'bg-transparent text-white '}`}>
       <div className="flex justify-between items-center w-full md:w-auto">
         <Link to="/" className="text-2xl text-orange-600 font-bold">
           Sky-Swift <span className="block text-2xl text-orange-600">Apartments</span>

@@ -9,7 +9,7 @@ export default function Dashboard() {
     <>  
         <Banner />
         <BookingForm/>
-        <Main />
+        {/* <Main /> */}
         <Card/>
     </>
    
