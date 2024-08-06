@@ -70,7 +70,7 @@ const ProductDescription = () => {
             </h1>
             <img
               src={getImage(singleId[0].image)}
-              className="rounded-lg shadow-lg w-full"
+              className="shadow-lg w-full"
               alt="no image found"
             />
           </>
