@@ -61,7 +61,7 @@ const ProductDescription = () => {
   };
 
   return (
-    <div className="mx-auto p-5 pt-32 grid grid-cols lg:grid-cols-2 gap-8 bg-slate-600">
+    <div className="mx-auto p-5 pt-32 grid grid-cols lg:grid-cols-2 gap-8 ">
       <div>
         {singleId[0] && (
           <>
