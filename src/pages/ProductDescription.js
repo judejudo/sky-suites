@@ -8,10 +8,11 @@ const ProductDescription = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const singleId = data.filter((myid) => myid.id == id);
+  const singleId = data.filter((mydata) => mydata.id == id);
 
   useEffect(() => {
     if (singleId[0]) {
+      
       setPrice(singleId[0].price);
     }
   }, [singleId]);
@@ -61,24 +62,26 @@ const ProductDescription = () => {
   };
 
   return (
-    <div className="mx-auto p-5 pt-32 grid grid-cols lg:grid-cols-2 gap-8 ">
-      <div>
+    <div>
+      <div className="border-t-2 border-t-orange-500 w-[1330px] mt-[90px] mx-auto"></div>
+      <div className="mx-auto p-5  grid grid-cols font-luxjost  lg:grid-cols-2  gap-8 ">
+      <div className="">
         {singleId[0] && (
           <>
-            <h1 className="text-4xl font-bold mb-4">
+            <h1 className="text-2xl font-semibold mb-4">
               {singleId[0].typeofplace}, {singleId[0].name}
             </h1>
             <img
               src={getImage(singleId[0].image)}
-              className="shadow-lg w-full"
+              className="shadow-lg rounded-sm md:h-96 md:mx-auto md:w-[500px]"
               alt="no image found"
             />
           </>
         )}
       </div>
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-3xl font-semibold mb-6">Reserve your stay</h2>
-        <div className="grid grid-cols-2 gap-4 mb-4">
+      <div className="bg-white h-96 md:mt-10 shadow-lg rounded-lg p-6 border-t-4 border-t-orange-400 border-b-4 border-b-orange-400">
+        <h2 className="text-xl font-semibold mb-6">Reserve your stay</h2>
+        {/* <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-gray-700">Check-in Date</label>
             <input
@@ -100,8 +103,8 @@ const ProductDescription = () => {
               min={date}
             />
           </div>
-        </div>
-        <div className="mb-4">
+        </div> */}
+        <div className="mb-4 md:pt-14">
           {singleId[0] && (
             <>
               <div className="flex justify-between">
@@ -114,24 +117,36 @@ const ProductDescription = () => {
                   ${(singleId[0].price * 14) / 100}
                 </span>
               </div>
-              <div className="flex justify-between font-semibold text-xl mt-4">
-                <span>Total</span>
-                <span>{outDate && inDate && totalPrice}</span>
+              <div className="flex justify-between  text-xl mt-4">
+                <span className="font-semibold text-gray-500">Total</span>
+                {/* <span>{outDate && inDate && totalPrice}</span> */}
+                <span>${ totalPrice}</span>
               </div>
             </>
           )}
         </div>
-        {outDate && inDate && (
+        {/* {outDate && inDate && (
           <button
             type="button"
             onClick={handleReserve}
-            className="mt-4 w-full text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-lg px-10 py-2.5 text-center"
+            className=" w-full text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-lg px-10 py-2.5 text-center"
+          >
+            Reserve
+          </button>
+        )} */}
+        { (
+          <button
+            type="button"
+            onClick={handleReserve}
+            className=" w-full text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-lg px-10 py-2.5 text-center"
           >
             Reserve
           </button>
         )}
       </div>
     </div>
+    </div>
+    
   );
 };
 

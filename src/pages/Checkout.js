@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
 import useDetails from "../Contexts/DescriptionContext";
 import axios from "axios";
@@ -18,6 +18,8 @@ import TrustlyLogo from '../assets/logos/trustly.png';
 import UnionPayLogo from '../assets/logos/unionpay.png';
 import VisaLogo from '../assets/logos/visa.png';
 import WeChatLogo from '../assets/logos/wechat.png';
+// import { useParams, useNavigate } from "react-router-dom";
+// import { DataContext } from "../Contexts/Context";
 
 
 const Checkout = () => {
@@ -27,37 +29,31 @@ const Checkout = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { setInDate, totalPrice, setOutDate } = useDetails();
+  // const data = useContext(DataContext);
+  // const { id } = useParams();
+  // const navigate = useNavigate();
+
+  // const singleId = data.filter((mydata) => mydata.id == id);
+  // useEffect(() => {
+  //   if (singleId[0]) {
+      
+  //     // setPrice(singleId[0].price);
+  //   }
+  // }, [singleId]);
+  // const getImage = (imagePath) => {
+  //   try {
+  //     return require(`../${imagePath}`);
+  //   } catch (err) {
+  //     console.error(`Image not found: ${imagePath}`);
+  //     return null;
+  //   }
+  // };
   const clientId = process.env.REACT_APP_CLIENT_ID;
   const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
   const formSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      //////
-      // console.log("Client ID:", clientId);
-      // console.log("Client Secret:", clientSecret);
-      // // Get access token
-      // const tokenResponse = await axios.post(
-      //   "/connect/token",
-      //   new URLSearchParams({
-      //     grant_type: "client_credentials",
-      //   }),
-      //   {
-      //     auth: {
-      //       username: clientId,
-      //       password: clientSecret,
-      //     },
-      //     headers: {
-      //       "Content-Type": "application/x-www-form-urlencoded",
-      //     },
-      //   }
-      // );
-
-      // const accessToken = tokenResponse.data.access_token;
-      // console.log("Access Token:", accessToken);
-
-      // Create payment order
-      // Create payment order
       const orderResponse = await axios.post(
         "https://vivapayment.vercel.app/create-order",
         {
@@ -89,11 +85,6 @@ const Checkout = () => {
       <div className=" mx-auto bg-white shadow-lg rounded-lg md:max-w-xl ">
         <div className="">
           <div className="w-full p-4 px-5 py-5">
-            {/* <div className="flex flex-row">
-                  <h2 className="text-3xl font-semibold">Athletic</h2>
-                  <h2 className="text-3xl text-green-400 font-semibold">Greens</h2>
-                </div> */}
-
             <span className="text-sm font-medium">Customer Information</span>
             <form onSubmit={formSubmit}>
               <div>
@@ -125,12 +116,6 @@ const Checkout = () => {
                 placeholder="Address*"
                 required
               />
-              {/* <input
-                type="text"
-                name="mail"
-                className="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 mt-2 text-sm"
-                placeholder="Apartment, suite, etc. (optional)"
-              /> */}
               <div className="grid md:grid-cols-3 md:gap-2">
                 <input
                   type="text"
@@ -166,12 +151,6 @@ const Checkout = () => {
                 >
                   Back
                 </Link>
-                {/* <button
-                  type="submit"
-                  className="h-12 w-48 rounded font-medium text-xs bg-red-400 text-white"
-                >
-                  Proceed to Payment ({totalPrice})
-                </button> */}
                 <button
                   type="submit"
                   className="h-12 w-48 rounded font-medium text-xs bg-red-400 text-white hover:bg-[#ff6e01] cursor-pointer transition-colors duration-300 flex items-center justify-center"
@@ -191,6 +170,48 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+      {/* <div className="grid grid-cols-2 gap-4">
+        <div className="bg-yellow-200 border p-5">
+        <div className="flex flex-col ">
+          <div className="flex ">
+          <div className="">
+        {singleId[0] && (
+          <>
+            <h1 className="text-2xl font-semibold mb-4">
+              {singleId[0].typeofplace}, {singleId[0].name}
+            </h1>
+            <img
+              src={getImage(singleId[0].image)}
+              className="shadow-lg rounded-sm md:h-96 md:mx-auto md:w-[500px]"
+              alt="no image found"
+            />
+          </>
+        )}
+      </div>
+            <div className="flex flex-col ">
+              <h>Apartment near Artcaffe Market</h>
+              <h>Entire unit</h>
+              <h>Reviews</h>
+            </div>
+          </div>
+          <div className="border border-t-2 border-t-gray-600"></div>
+          <h>Price details</h>
+          <div className="flex">
+            <h>Ksh 3,885 x 2 night</h>
+            <h className="mr-auto">Ksh 7,400</h>
+          </div>
+          <div className="flex">
+            <h>Total</h>
+            <h className="pr-auto">Ksh 7,400</h>
+          </div>
+          
+
+        </div>
+
+        </div>
+        <div className="bg-slate-700">column 2</div>
+
+      </div> */}
       <div className="mt-6 flex flex-col items-center">
         <p className="text-sm font-medium mt-5 mb-7">Accepted Payment Methods</p>
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 max-w-2xl w-full">
