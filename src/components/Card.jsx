@@ -68,7 +68,7 @@ const Card = () => {
                   <div className="ml-5">
                   <h2 className="text-gray-400">{name}</h2>
                   <h2 className="text-gray-400">{rooms} rooms</h2>
-                  <h2 className="font-semibold text-gray-700">${price} night</h2>
+                  <h2 className="font-semibold text-gray-700">€{price} night</h2>
                   </div>
 
                 </div>

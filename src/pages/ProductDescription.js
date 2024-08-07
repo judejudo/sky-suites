@@ -109,18 +109,18 @@ const ProductDescription = () => {
             <>
               <div className="flex justify-between">
                 <span className="text-lg font-medium">Price per night</span>
-                <span className="text-lg">${singleId[0].price} /night</span>
+                <span className="text-lg">€{singleId[0].price} /night</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-lg font-medium">All Taxes (14%)</span>
                 <span className="text-lg">
-                  ${(singleId[0].price * 14) / 100}
+                  €{(singleId[0].price * 14) / 100}
                 </span>
               </div>
               <div className="flex justify-between  text-xl mt-4">
                 <span className="font-semibold text-gray-500">Total</span>
                 {/* <span>{outDate && inDate && totalPrice}</span> */}
-                <span>${ totalPrice}</span>
+                <span>€{ totalPrice}</span>
               </div>
             </>
           )}
