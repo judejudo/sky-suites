@@ -7,7 +7,7 @@
         "location": "Nairobi, Kenya",
         "rating": "4.34",
         "typeofplace": "City Apartment",
-        "rooms": "30",
+        "rooms": "3",
         "host_language": "English, Swahili",
         "price": 200
     },
@@ -19,7 +19,7 @@
         "location": "Nairobi, Kenya",
         "rating": "4.68 ",
         "typeofplace": "City Apartment",
-        "rooms": "25",
+        "rooms": "3",
         "host_language": "English, Swahili",
         "price": 250
     },
@@ -31,7 +31,7 @@
         "location": "Nairobi, Kenya",
         "rating": "4.93 ",
         "typeofplace": "Suburban Apartment",
-        "rooms": "20",
+        "rooms": "4",
         "host_language": "English, Swahili",
         "price": 150
     },
@@ -43,7 +43,7 @@
         "location": "Nairobi, Kenya",
         "rating": "4.82 ",
         "typeofplace": "City Apartment",
-        "rooms": "35",
+        "rooms": "2",
         "host_language": "English, Swahili",
         "price": 200
     },
@@ -55,7 +55,7 @@
         "location": "Kuala Lumpur, Malaysia",
         "rating": "3.48 ",
         "typeofplace": "City Apartment",
-        "rooms": "40",
+        "rooms": "4",
         "host_language": "English, Malay",
         "price": 600
     },
@@ -67,7 +67,7 @@
         "location": "Singapore",
         "rating": "4.94",
         "typeofplace": "City Apartment",
-        "rooms": "45",
+        "rooms": "5",
         "host_language": "English, Mandarin",
         "price": 600
     },
@@ -79,7 +79,7 @@
         "location": "Singapore",
         "rating": "4.23 ",
         "typeofplace": "City Apartment",
-        "rooms": "30",
+        "rooms": "7",
         "host_language": "English, Mandarin",
         "price": 700
     },
@@ -91,7 +91,7 @@
         "location": "Hong Kong",
         "rating": "4.10 ",
         "typeofplace": "City Apartment",
-        "rooms": "50",
+        "rooms": "6",
         "host_language": "English, Cantonese",
         "price": 600
     },
@@ -103,7 +103,7 @@
         "location": "Toronto, Canada",
         "rating": "3.94 ",
         "typeofplace": "City Apartment",
-        "rooms": "40",
+        "rooms": "6",
         "host_language": "English, French",
         "price": 750
     },
@@ -115,7 +115,7 @@
         "location": "Dubai, UAE",
         "rating": "4.00",
         "typeofplace": "City Apartment",
-        "rooms": "55",
+        "rooms": "8",
         "host_language": "English, Arabic",
         "price": 800
     }

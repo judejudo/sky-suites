@@ -10,46 +10,41 @@ const ProductDescription = () => {
 
   const singleId = data.filter((mydata) => mydata.id == id);
 
+  const [nightsInput, setNightsInput] = useState('1');
+  const [evaluatedNights, setEvaluatedNights] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(0);
+
   useEffect(() => {
     if (singleId[0]) {
-      
-      setPrice(singleId[0].price);
+      // setPrice(singleId[0].price);
+      calculateTotalPrice(singleId[0].price, evaluatedNights);
     }
-  }, [singleId]);
+  }, [singleId, evaluatedNights]);
 
-  const {
-    inDate,
-    setInDate,
-    outDate,
-    setOutDate,
-    currentDate,
-    setPrice,
-    setInTime,
-    setOutTime,
-    totalPrice,
-  } = useDetails();
-
-  let date = JSON.stringify(inDate);
-  date = date.slice(1, 11);
-  let maxDate = JSON.stringify(outDate);
-  maxDate = maxDate.slice(1, 11);
+  // const {
+  //   setPrice,
+  // } = useDetails();
 
   const handleReserve = () => {
     navigate("/checkout", { state: totalPrice });
   };
 
-  const handleDate = (e) => {
-    const newDate = new Date(e.target.value);
-    const newTime = new Date(e.target.value).getTime();
-    setInTime(newTime);
-    setInDate(newDate);
+  const handleNightsChange = (e) => {
+    const inputValue = e.target.value;
+    setNightsInput(inputValue);
+
+    const newNights = inputValue === '' ? 1 : Math.max(1, parseInt(inputValue) || 1);
+    setEvaluatedNights(newNights);
+
+    if (singleId[0]) {
+      calculateTotalPrice(singleId[0].price, newNights);
+    }
   };
 
-  const handleDate2 = (e) => {
-    const newDate = new Date(e.target.value);
-    const newTime = new Date(e.target.value).getTime();
-    setOutDate(newDate);
-    setOutTime(newTime);
+  const calculateTotalPrice = (pricePerNight, numberOfNights) => {
+    const subtotal = pricePerNight * numberOfNights;
+    const tax = (subtotal * 14) / 100;
+    setTotalPrice(subtotal + tax);
   };
 
   const getImage = (imagePath) => {
@@ -64,89 +59,75 @@ const ProductDescription = () => {
   return (
     <div>
       <div className="border-t-2 border-t-orange-500 w-[1330px] mt-[90px] mx-auto"></div>
-      <div className="mx-auto p-5  grid grid-cols font-luxjost  lg:grid-cols-2  gap-8 ">
-      <div className="">
-        {singleId[0] && (
-          <>
-            <h1 className="text-2xl font-semibold mb-4">
-              {singleId[0].typeofplace}, {singleId[0].name}
-            </h1>
-            <img
-              src={getImage(singleId[0].image)}
-              className="shadow-lg rounded-sm md:h-96 md:mx-auto md:w-[500px]"
-              alt="no image found"
-            />
-          </>
-        )}
-      </div>
-      <div className="bg-white h-96 md:mt-10 shadow-lg rounded-lg p-6 border-t-4 border-t-orange-400 border-b-4 border-b-orange-400">
-        <h2 className="text-xl font-semibold mb-6">Reserve your stay</h2>
-        {/* <div className="grid grid-cols-2 gap-4 mb-4">
-          <div>
-            <label className="block text-gray-700">Check-in Date</label>
-            <input
-              type="date"
-              name="date"
-              className="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 text-sm cursor-pointer"
-              min={currentDate}
-              max={maxDate}
-              onChange={handleDate}
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Check-out Date</label>
-            <input
-              type="date"
-              name="mail"
-              className="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 text-sm cursor-pointer"
-              onChange={handleDate2}
-              min={date}
-            />
-          </div>
-        </div> */}
-        <div className="mb-4 md:pt-14">
+      <div className="mx-auto p-5 grid grid-cols font-luxjost lg:grid-cols-2 gap-8">
+        <div className="">
           {singleId[0] && (
             <>
-              <div className="flex justify-between">
-                <span className="text-lg font-medium">Price per night</span>
-                <span className="text-lg">€{singleId[0].price} /night</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-lg font-medium">All Taxes (14%)</span>
-                <span className="text-lg">
-                  €{(singleId[0].price * 14) / 100}
-                </span>
-              </div>
-              <div className="flex justify-between  text-xl mt-4">
-                <span className="font-semibold text-gray-500">Total</span>
-                {/* <span>{outDate && inDate && totalPrice}</span> */}
-                <span>€{ totalPrice}</span>
-              </div>
+              <h1 className="text-2xl font-semibold mb-4">
+                {singleId[0].typeofplace}, {singleId[0].name}
+              </h1>
+              <img
+                src={getImage(singleId[0].image)}
+                className="shadow-lg rounded-sm md:h-96 md:mx-auto md:w-[500px]"
+                alt="no image found"
+              />
             </>
           )}
         </div>
-        {/* {outDate && inDate && (
-          <button
-            type="button"
-            onClick={handleReserve}
-            className=" w-full text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-lg px-10 py-2.5 text-center"
-          >
-            Reserve
-          </button>
-        )} */}
-        { (
-          <button
-            type="button"
-            onClick={handleReserve}
-            className=" w-full text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-lg px-10 py-2.5 text-center"
-          >
-            Reserve
-          </button>
-        )}
+        <div className="bg-white h-96 md:mt-10 shadow-lg rounded-lg p-6 border-t-4 border-t-orange-400 border-b-4 border-b-orange-400">
+          <h2 className="text-xl font-semibold mb-6">Reserve your stay</h2>
+          <div className="mb-1">
+            <label className="block text-gray-700">Number of Nights</label>
+            <input
+              type="number"
+              min="1"
+              value={nightsInput}
+              onChange={handleNightsChange}
+              className="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 text-sm"
+            />
+          </div>
+          <div className="mb-4">
+            {singleId[0] && (
+              <>
+                <div className="flex justify-between">
+                  <span className="text-lg font-medium">Price per night</span>
+                  <span className="text-lg">€{singleId[0].price}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-lg font-medium">Number of nights</span>
+                  <span className="text-lg">{evaluatedNights}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-lg font-medium">Subtotal</span>
+                  <span className="text-lg">€{singleId[0].price * evaluatedNights}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-lg font-medium">All Taxes (14%)</span>
+                  <span className="text-lg">
+                    €{((singleId[0].price * evaluatedNights * 14) / 100).toFixed(2)}
+                  </span>
+                </div>
+                <div className="flex justify-between text-xl mt-4">
+                  <span className="font-semibold text-gray-500">Total</span>
+                  <span>€{totalPrice.toFixed(2)}</span>
+                </div>
+              </>
+            )}
+          </div>
+          {
+            evaluatedNights && (
+              <button
+                type="button"
+                onClick={handleReserve}
+                className="w-full text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-lg px-10 py-2.5 text-center"
+              >
+                Reserve
+              </button>
+            )}
+
+        </div>
       </div>
     </div>
-    </div>
-    
   );
 };
 
