@@ -1,0 +1,4 @@
+Sourced from: https://simplemaps.com/data/world-cities
+
+Download the zip file, extract it, and move the file: worldcities.csv to this directory, 
+then run generator.py to generate the data.js file for the filters.
