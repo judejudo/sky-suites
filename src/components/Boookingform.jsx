@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../datepicker.css';
-import { format } from 'date-fns';
+import { addDays, format } from 'date-fns';
 import data from '../Data/data';
+import { SearchContext } from '../Contexts/SearchContext';
+import axios from 'axios';
 
 
 const BookingForm = () => {
@@ -13,19 +15,45 @@ const BookingForm = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
 
+  const { setSearchResults, setHasSearched } = useContext(SearchContext);
+
   const onChange = (event) => {
     setLocation(event.target.value);
   }
 
-  const onSearch = (searchTerm) => {
-    //code
-    const formattedCheckIn = checkInDate ? format(checkInDate, 'yyyy-MM-dd') : null;
-    const formattedCheckOut = checkOutDate ? format(checkOutDate, 'yyyy-MM-dd') : null;
-    console.log("search:", searchTerm);
-    console.log("latitude:", selectedLocation.lat);
-    console.log("longitude:", selectedLocation.lng);
-    console.log("checkin:", formattedCheckIn);
-    console.log("checkout:", formattedCheckOut);
+  const onSearch = async (searchTerm) => {
+    const defaultCheckIn = addDays(new Date(), 1);
+    const defaultCheckOut = addDays(defaultCheckIn, 7);
+
+    const formattedCheckIn = checkInDate ? format(checkInDate, 'yyyy-MM-dd') : format(defaultCheckIn, 'yyyy-MM-dd');
+    const formattedCheckOut = checkOutDate ? format(checkOutDate, 'yyyy-MM-dd') : format(defaultCheckOut, 'yyyy-MM-dd');
+    // console.log("search:", searchTerm);
+    // console.log("latitude:", selectedLocation.lat);
+    // console.log("longitude:", selectedLocation.lng);
+    // console.log("checkin:", formattedCheckIn);
+    // console.log("checkout:", formattedCheckOut);
+
+    if (selectedLocation) {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/foreignApartments', {
+          params: {
+            latitude: selectedLocation.lat,
+            longitude: selectedLocation.lat,
+            arrival_date: formattedCheckIn,
+            departure_date: formattedCheckOut,
+          }
+        });
+        setSearchResults(response.data);
+        setHasSearched(true);
+      } catch (error) {
+        console.error("error while searching:", error);
+        setSearchResults([]);
+        setHasSearched(true);
+      }
+    } else {
+      setSearchResults([]);
+      setHasSearched(false);
+    }
   }
 
   return (
