@@ -16,13 +16,8 @@ const ProductDescription = () => {
 
   useEffect(() => {
     if (singleId[0]) {
-<<<<<<< HEAD
-
-      setPrice(singleId[0].price);
-=======
       // setPrice(singleId[0].price);
       calculateTotalPrice(singleId[0].price, evaluatedNights);
->>>>>>> 820711e630fcd19c219c9e568bc185fe57c17685
     }
   }, [singleId, evaluatedNights]);
 
@@ -32,7 +27,7 @@ const ProductDescription = () => {
 
   const handleReserve = () => {
     const apartmentId = singleId[0]?.id; // Get the id of the selected apartment
-    navigate("/checkout", { state: { totalPrice, apartmentId } });
+    navigate("/checkout", { state: { totalPrice, apartmentId, evaluatedNights } });
   };
 
   const handleNightsChange = (e) => {
