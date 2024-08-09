@@ -12,7 +12,7 @@ const ProductDescription = () => {
 
   useEffect(() => {
     if (singleId[0]) {
-      
+
       setPrice(singleId[0].price);
     }
   }, [singleId]);
@@ -35,7 +35,8 @@ const ProductDescription = () => {
   maxDate = maxDate.slice(1, 11);
 
   const handleReserve = () => {
-    navigate("/checkout", { state: totalPrice });
+    const apartmentId = singleId[0]?.id; // Get the id of the selected apartment
+    navigate("/checkout", { state: { totalPrice, apartmentId } });
   };
 
   const handleDate = (e) => {

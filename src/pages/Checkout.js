@@ -1,4 +1,4 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useDetails from "../Contexts/DescriptionContext";
 import axios from "axios";
@@ -20,15 +20,18 @@ import VisaLogo from '../assets/logos/visa.png';
 import WeChatLogo from '../assets/logos/wechat.png';
 // import { useParams, useNavigate } from "react-router-dom";
 // import { DataContext } from "../Contexts/Context";
+import { useLocation } from "react-router-dom";
 
 
 const Checkout = () => {
+  const location = useLocation();
+  const totalPrice = location.state;
   const [email, setemail] = useState("");
   const [name, setname] = useState("");
   const [number, setnumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { setInDate, totalPrice, setOutDate } = useDetails();
+  const { setInDate, setOutDate } = useDetails();
   // const data = useContext(DataContext);
   // const { id } = useParams();
   // const navigate = useNavigate();
@@ -36,7 +39,7 @@ const Checkout = () => {
   // const singleId = data.filter((mydata) => mydata.id == id);
   // useEffect(() => {
   //   if (singleId[0]) {
-      
+
   //     // setPrice(singleId[0].price);
   //   }
   // }, [singleId]);
@@ -162,7 +165,7 @@ const Checkout = () => {
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
                   ) : (
-                    `Proceed to Payment (${totalPrice})`
+                    `Proceed to Payment (${totalPrice?.toFixed(0) || '0.00'})`
                   )}
                 </button>
               </div>
