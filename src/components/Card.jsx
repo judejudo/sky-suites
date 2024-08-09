@@ -6,22 +6,20 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaStar, FaRegStar } from "react-icons/fa"; 
 
 const Card = () => {
-  // const { input } = useContext(SearchContext);
-  // const data1 = useContext(DataContext);
+  const { input } = useContext(SearchContext);
+  const data1 = useContext(DataContext);
 
-  // const filteredData = data1.filter((myid) => {
-  //   let location = myid.location.toLowerCase();
-  //   return location === input.toLowerCase();
-  // });
+  const filteredData = data1.filter((myid) => {
+    let location = myid.location.toLowerCase();
+    return location === input.toLowerCase();
+  });
 
-  // const filterGetData =
-  //   filteredData && filteredData.length !== 0
-  //     ? filteredData
-  //     : input?.length !== 0 && filteredData.length === 0
-  //       ? "No Data Found"
-  //       : data1;
-
-  const { searchResults } = useContext(SearchContext);
+  const filterGetData =
+    filteredData && filteredData.length !== 0
+      ? filteredData
+      : input?.length !== 0 && filteredData.length === 0
+        ? "No Data Found"
+        : data1;
 
   const getImage = (imagePath) => {
     try {

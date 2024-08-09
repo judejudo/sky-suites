@@ -8,7 +8,7 @@ import { SearchContext } from '../Contexts/SearchContext';
 import axios from 'axios';
 
 
-const BookingForm = () => {
+const BookingForm = ({ setForeignApartments }) => {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
   const [location, setLocation] = useState('');
@@ -28,31 +28,26 @@ const BookingForm = () => {
     const formattedCheckIn = checkInDate ? format(checkInDate, 'yyyy-MM-dd') : format(defaultCheckIn, 'yyyy-MM-dd');
     const formattedCheckOut = checkOutDate ? format(checkOutDate, 'yyyy-MM-dd') : format(defaultCheckOut, 'yyyy-MM-dd');
     // console.log("search:", searchTerm);
-    // console.log("latitude:", selectedLocation.lat);
-    // console.log("longitude:", selectedLocation.lng);
-    // console.log("checkin:", formattedCheckIn);
-    // console.log("checkout:", formattedCheckOut);
+    console.log("latitude:", selectedLocation.lat);
+    console.log("longitude:", selectedLocation.lng);
+    console.log("checkin:", formattedCheckIn);
+    console.log("checkout:", formattedCheckOut);
 
     if (selectedLocation) {
       try {
+
         const response = await axios.get('http://127.0.0.1:8000/api/foreignApartments', {
           params: {
             latitude: selectedLocation.lat,
-            longitude: selectedLocation.lat,
+            longitude: selectedLocation.lng,
             arrival_date: formattedCheckIn,
             departure_date: formattedCheckOut,
           }
         });
-        setSearchResults(response.data);
-        setHasSearched(true);
+        console.log(response.data);
       } catch (error) {
-        console.error("error while searching:", error);
-        setSearchResults([]);
-        setHasSearched(true);
       }
     } else {
-      setSearchResults([]);
-      setHasSearched(false);
     }
   }
 

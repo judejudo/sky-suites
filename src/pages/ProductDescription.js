@@ -26,7 +26,8 @@ const ProductDescription = () => {
   // } = useDetails();
 
   const handleReserve = () => {
-    navigate("/checkout", { state: totalPrice });
+    const apartmentId = singleId[0]?.id; // Get the id of the selected apartment
+    navigate("/checkout", { state: { totalPrice, apartmentId, evaluatedNights } });
   };
 
   const handleNightsChange = (e) => {

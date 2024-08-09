@@ -3,19 +3,11 @@ import React, { useState } from "react";
 export const SearchContext = React.createContext();
 
 function SearchProvider({ children }) {
-  const [searchResults, setSearchResults] = useState([]);
+  const [search, setSearch] = useState("");
   const [input, setInput] = useState("");
-  const [hasSearched, setHasSearched] = useState(false);
 
   return (
-    <SearchContext.Provider value={{
-      searchResults,
-      setSearchResults,
-      input,
-      setInput,
-      hasSearched,
-      setHasSearched
-    }}>
+    <SearchContext.Provider value={{search, setSearch,input, setInput }}>
       {children}
     </SearchContext.Provider>
   );
