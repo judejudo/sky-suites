@@ -1,0 +1,6 @@
+worldcitiesless.csv sourced from: https://www.kaggle.com/datasets/viswanathanc/world-cities-datasets?resource=download
+
+worldcities.csv sourced from: https://simplemaps.com/data/world-cities
+
+Download the zip file, extract it, and move the file: worldcities.csv / worldcitiesless.csv to this directory, 
+then run generator.py to generate the data.js file for the filters.

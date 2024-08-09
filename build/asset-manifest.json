@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/apartments/static/css/main.bb358d6e.css",
-    "main.js": "/apartments/static/js/main.36d88e7c.js",
+    "main.css": "/apartments/static/css/main.5ba4d727.css",
+    "main.js": "/apartments/static/js/main.ac44dfaa.js",
     "static/js/787.de807f86.chunk.js": "/apartments/static/js/787.de807f86.chunk.js",
     "static/media/kilimani.jpg": "/apartments/static/media/kilimani.e859bcbace99704af9a5.jpg",
     "static/media/banner3.jpg": "/apartments/static/media/banner3.c85102aa33956dcdf6b3.jpg",
@@ -44,12 +44,12 @@
     "static/media/fail.jpg": "/apartments/static/media/fail.34c0f1fb670bccdb0308.jpg",
     "static/media/logo.svg": "/apartments/static/media/logo.6ce24c58023cc2f8fd88.svg",
     "index.html": "/apartments/index.html",
-    "main.bb358d6e.css.map": "/apartments/static/css/main.bb358d6e.css.map",
-    "main.36d88e7c.js.map": "/apartments/static/js/main.36d88e7c.js.map",
+    "main.5ba4d727.css.map": "/apartments/static/css/main.5ba4d727.css.map",
+    "main.ac44dfaa.js.map": "/apartments/static/js/main.ac44dfaa.js.map",
     "787.de807f86.chunk.js.map": "/apartments/static/js/787.de807f86.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb358d6e.css",
-    "static/js/main.36d88e7c.js"
+    "static/css/main.5ba4d727.css",
+    "static/js/main.ac44dfaa.js"
   ]
 }
