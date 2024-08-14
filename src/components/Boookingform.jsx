@@ -8,14 +8,12 @@ import { SearchContext } from '../Contexts/SearchContext';
 import axios from 'axios';
 
 
-const BookingForm = ({ setForeignApartments }) => {
+const BookingForm = ({ setHotels, setHasSearched }) => {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
   const [location, setLocation] = useState('');
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
-
-  const { setSearchResults, setHasSearched } = useContext(SearchContext);
 
   const onChange = (event) => {
     setLocation(event.target.value);
@@ -44,6 +42,8 @@ const BookingForm = ({ setForeignApartments }) => {
             departure_date: formattedCheckOut,
           }
         });
+        setHotels(response.data);
+        setHasSearched(true);
         console.log(response.data);
       } catch (error) {
       }
