@@ -118,5 +118,29 @@
         "rooms": "8",
         "host_language": "English, Arabic",
         "price": 800
+    },
+        {
+        "id": 11,
+        "image": "assets/images/kampala.jpg",
+        "name": "Sky Apartment in Uganda",
+        "category": "City Apartment",
+        "location": "Kampala, Uganda",
+        "rating": "4.00",
+        "typeofplace": "City Apartment",
+        "rooms": "2",
+        "host_language": "English",
+        "price": 200
+    },
+    {
+        "id": 12,
+        "image": "assets/images/rwanda.jpeg",
+        "name": "Sky Apartment in Rwanda",
+        "category": "City Apartment",
+        "location": "Kigali, Rwanda",
+        "rating": "4.00",
+        "typeofplace": "City Apartment",
+        "rooms": "3",
+        "host_language": "English, ",
+        "price": 250
     }
 ]

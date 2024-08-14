@@ -53,8 +53,9 @@ const BookingForm = ({ setForeignApartments }) => {
 
   return (
     <div className="md:absolute md:top-[320px]  flex flex-col md:left-[150px] bg-white font-luxjost justify-center p-4 md:p-6 shadow-xl mt-10 rounded-3xl mx-3 md:mx-20  max-w-full">
-      <p className='md:mr-auto p-1 font-bold text-3xl text-orange-600'>Book Now</p>
-      <div className="flex flex-col md:flex-row ">
+      <p className='md:mr-auto p-1 font-bold text-3xl text-orange-600'>Welcome to Your Home Away From Home</p>
+      <p className='flex flex-wrap md:text-2xl text-orange-500'>Discover comfort, convenience, and a touch of local charm with our handpicked properties</p>
+      {/* <div className="flex flex-col md:flex-row ">
         <div className="flex flex-col md:flex-row mb-4 md:mb-0 w-full md:space-x-4">
           <input
             type="text"
@@ -113,7 +114,7 @@ const BookingForm = ({ setForeignApartments }) => {
           />
           <button onClick={() => onSearch(location)} className="p-2 bg-orange-600 text-white h-14 w-full md:w-32 rounded-lg ml-0 md:ml-2">Find a House</button>
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 }
