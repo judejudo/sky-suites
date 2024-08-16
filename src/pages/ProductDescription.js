@@ -2,13 +2,48 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { DataContext } from "../Contexts/Context";
 import useDetails from "../Contexts/DescriptionContext";
+import { addDays, format } from 'date-fns';
+import axios from "axios";
 
 const ProductDescription = () => {
+  const [checkInDate, setCheckInDate] = useState(null);
+  const [checkOutDate, setCheckOutDate] = useState(null);
+  const [singleId, setSingleId] = useState({});
   const data = useContext(DataContext);
-  const { id } = useParams();
+  const { hotel_id } = useParams();
   const navigate = useNavigate();
 
-  const singleId = data.filter((mydata) => mydata.id == id);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (hotel_id > 12) {
+        console.log(hotel_id);
+        const defaultCheckIn = addDays(new Date(), 1);
+        const defaultCheckOut = addDays(defaultCheckIn, 7);
+
+        const formattedCheckIn = checkInDate ? format(checkInDate, 'yyyy-MM-dd') : format(defaultCheckIn, 'yyyy-MM-dd');
+        const formattedCheckOut = checkOutDate ? format(checkOutDate, 'yyyy-MM-dd') : format(defaultCheckOut, 'yyyy-MM-dd');
+
+        try {
+          const response = await axios.get('http://127.0.0.1:8000/api/foreignApartments/details', {
+            params: {
+              hotel_id: hotel_id,
+              arrival_date: formattedCheckIn,
+              departure_date: formattedCheckOut,
+            }
+          });
+          console.log(response.data);
+          setSingleId(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        const filteredData = data.filter((mydata) => mydata.hotel_id == hotel_id);
+        setSingleId(filteredData);
+      }
+    };
+
+    fetchData();
+  }, [hotel_id, checkInDate, checkOutDate, data]);
 
   const [nightsInput, setNightsInput] = useState('1');
   const [evaluatedNights, setEvaluatedNights] = useState(1);
@@ -17,7 +52,7 @@ const ProductDescription = () => {
   useEffect(() => {
     if (singleId[0]) {
       // setPrice(singleId[0].price);
-      calculateTotalPrice(singleId[0].price, evaluatedNights);
+      calculateTotalPrice(singleId[0].price_per_night, evaluatedNights);
     }
   }, [singleId, evaluatedNights]);
 
@@ -27,7 +62,7 @@ const ProductDescription = () => {
 
   const handleReserve = () => {
     const apartmentId = singleId[0]?.id; // Get the id of the selected apartment
-    navigate("/checkout", { state: { totalPrice, apartmentId, evaluatedNights } });
+    navigate("/checkout", { state: { totalPrice, apartmentId, evaluatedNights, singleId: singleId[0] } });
   };
 
   const handleNightsChange = (e) => {
@@ -50,6 +85,9 @@ const ProductDescription = () => {
 
   const getImage = (imagePath) => {
     try {
+      if (imagePath.startsWith("https")) {
+        return imagePath;
+      }
       return require(`../${imagePath}`);
     } catch (err) {
       console.error(`Image not found: ${imagePath}`);
@@ -64,11 +102,11 @@ const ProductDescription = () => {
         <div className="">
           {singleId[0] && (
             <>
-              <h1 className="text-2xl font-semibold mb-4">
-                {singleId[0].typeofplace}, {singleId[0].name}
+              <h1 className="text-2xl font-semibold ml-24 mb-4 truncate max-w-[800px]">
+                {singleId[0].typeofplace}, {singleId[0].hotel_name}
               </h1>
               <img
-                src={getImage(singleId[0].image)}
+                src={getImage(singleId[0].main_photo_url)}
                 className="shadow-lg rounded-sm md:h-96 md:mx-auto md:w-[500px]"
                 alt="no image found"
               />
@@ -92,7 +130,7 @@ const ProductDescription = () => {
               <>
                 <div className="flex justify-between">
                   <span className="text-lg font-medium">Price per night</span>
-                  <span className="text-lg">€{singleId[0].price}</span>
+                  <span className="text-lg">€{singleId[0].price_per_night}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-lg font-medium">Number of nights</span>
@@ -100,12 +138,12 @@ const ProductDescription = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-lg font-medium">Subtotal</span>
-                  <span className="text-lg">€{singleId[0].price * evaluatedNights}</span>
+                  <span className="text-lg">€{singleId[0].price_per_night * evaluatedNights}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-lg font-medium">All Taxes (14%)</span>
                   <span className="text-lg">
-                    €{((singleId[0].price * evaluatedNights * 14) / 100).toFixed(2)}
+                    €{((singleId[0].price_per_night * evaluatedNights * 14) / 100).toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between text-xl mt-4">

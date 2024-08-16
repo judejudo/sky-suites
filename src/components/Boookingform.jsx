@@ -26,10 +26,10 @@ const BookingForm = ({ setHotels, setHasSearched }) => {
     const formattedCheckIn = checkInDate ? format(checkInDate, 'yyyy-MM-dd') : format(defaultCheckIn, 'yyyy-MM-dd');
     const formattedCheckOut = checkOutDate ? format(checkOutDate, 'yyyy-MM-dd') : format(defaultCheckOut, 'yyyy-MM-dd');
     // console.log("search:", searchTerm);
-    console.log("latitude:", selectedLocation.lat);
-    console.log("longitude:", selectedLocation.lng);
-    console.log("checkin:", formattedCheckIn);
-    console.log("checkout:", formattedCheckOut);
+    // console.log("latitude:", selectedLocation.lat);
+    // console.log("longitude:", selectedLocation.lng);
+    // console.log("checkin:", formattedCheckIn);
+    // console.log("checkout:", formattedCheckOut);
 
     if (selectedLocation) {
       try {
@@ -44,7 +44,7 @@ const BookingForm = ({ setHotels, setHasSearched }) => {
         });
         setHotels(response.data);
         setHasSearched(true);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
       }
     } else {

@@ -72,8 +72,10 @@ const Card = ({ hotels, hasSearched }) => {
                     <div className="font-semibold flex md:ml-auto"><div className="md:ml-32 ml-10"><FaStar size={20} color="gold" /></div>{rating}</div>
                   </div>
                   <div className="ml-5">
-                    <h2 className="text-gray-400">{hotel_name}</h2>
-                    <h2 className="text-gray-400">{label} rooms</h2>
+                    <h2 className="text-gray-400 truncate max-w-[200px]" title={hotel_name}>
+                      {hotel_name}
+                    </h2>
+                    <h2 className="text-gray-400">{label}</h2>
                     <h2 className="font-semibold text-gray-700">€{price_per_night}/night</h2>
                   </div>
 

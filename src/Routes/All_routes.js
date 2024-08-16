@@ -18,7 +18,7 @@ export const allRoutes = [
   // },
   {
     id: "2",
-    path: "/description/:id",
+    path: "/description/:hotel_id",
     component: <ProductDescription />,
     isprotected: false,
     issemiprotected: false,
