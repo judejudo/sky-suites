@@ -7,7 +7,7 @@
         "city": "Nairobi, Kenya",
         "rating": "4.34",
         "typeofplace": "City Apartment",
-        "label": "3",
+        "label": "2 beds • 2 bedrooms • 1 living room • 1 bathroom",
         "host_language": "English, Swahili",
         "price_per_night": 200
     },
@@ -19,7 +19,7 @@
         "city": "Nairobi, Kenya",
         "rating": "4.68 ",
         "typeofplace": "City Apartment",
-        "label": "3",
+        "label": "2 beds • 2 bedrooms • 1 living room • 1 bathroom",
         "host_language": "English, Swahili",
         "price_per_night": 250
     },
@@ -31,7 +31,7 @@
         "city": "Nairobi, Kenya",
         "rating": "4.93 ",
         "typeofplace": "Suburban Apartment",
-        "label": "4",
+        "label": "2 beds • 1 bedroom • 1 living room • 1 bathroom",
         "host_language": "English, Swahili",
         "price_per_night": 150
     },
@@ -43,7 +43,7 @@
         "city": "Nairobi, Kenya",
         "rating": "4.82 ",
         "typeofplace": "City Apartment",
-        "label": "2",
+        "label": "2 beds • 1 bedroom • 1 living room • 1 bathroom",
         "host_language": "English, Swahili",
         "price_per_night": 200
     },
@@ -55,7 +55,7 @@
         "city": "Kuala Lumpur, Malaysia",
         "rating": "3.48 ",
         "typeofplace": "City Apartment",
-        "label": "4",
+        "label": "3 beds • 3 bedrooms • 1 living room • 2 bathrooms",
         "host_language": "English, Malay",
         "price_per_night": 600
     },
@@ -67,7 +67,7 @@
         "city": "Singapore",
         "rating": "4.94",
         "typeofplace": "City Apartment",
-        "label": "5",
+        "label": "2 beds • 2 bedrooms • 1 living room • 2 bathrooms",
         "host_language": "English, Mandarin",
         "price_per_night": 600
     },
@@ -79,7 +79,7 @@
         "city": "Singapore",
         "rating": "4.23 ",
         "typeofplace": "City Apartment",
-        "label": "7",
+        "label": "4 beds • 3 bedrooms • 2 living room • 3 bathroom",
         "host_language": "English, Mandarin",
         "price_per_night": 700
     },
@@ -91,7 +91,7 @@
         "city": "Hong Kong",
         "rating": "4.10 ",
         "typeofplace": "City Apartment",
-        "label": "6",
+        "label": "2 beds • 2 bedrooms • 1 living room • 2 bathrooms",
         "host_language": "English, Cantonese",
         "price_per_night": 600
     },
@@ -103,7 +103,7 @@
         "city": "Toronto, Canada",
         "rating": "3.94 ",
         "typeofplace": "City Apartment",
-        "label": "6",
+        "label": "3 beds • 3 bedrooms • 1 living room • 2 bathrooms",
         "host_language": "English, French",
         "price_per_night": 750
     },
@@ -115,8 +115,32 @@
         "city": "Dubai, UAE",
         "rating": "4.00",
         "typeofplace": "City Apartment",
-        "label": "8",
+        "label": "5 beds • 4 bedrooms • 2 living room • 3 bathrooms",
         "host_language": "English, Arabic",
         "price_per_night": 800
+    },
+    {
+        "hotel_id": 11,
+        "main_photo_url": "assets/images/kampala.jpg",
+        "hotel_name": "Sky Apartment in Uganda",
+        "category": "City Apartment",
+        "city": "Kampala, Uganda",
+        "rating": "4.00",
+        "typeofplace": "City Apartment",
+        "label": "2 beds • 2 bedrooms • 1 living room • 2 bathrooms",
+        "host_language": "English",
+        "price_per_night": 200
+    },
+    {
+        "hotel_id": 12,
+        "main_photo_url": "assets/images/rwanda.jpeg",
+        "hotel_name": "Sky Apartment in Rwanda",
+        "category": "City Apartment",
+        "city": "Kigali, Rwanda",
+        "rating": "4.00",
+        "typeofplace": "City Apartment",
+        "label": "2 beds • 2 bedrooms • 1 living room • 2 bathrooms",
+        "host_language": "English, ",
+        "price_per_night": 250
     }
 ]

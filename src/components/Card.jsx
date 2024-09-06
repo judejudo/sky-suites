@@ -67,11 +67,11 @@ const Card = ({ hotels, hasSearched }) => {
                 </div>
                 <div className="m-3 pr-3">
                   <div className="flex">
-                    <div><FaMapMarkerAlt size={20} color="red" /></div>
+                    <div></div>
                     <h2 className="md:font-semibold  md:text-lg ">{city}</h2>
                     <div className="font-semibold flex md:ml-auto"><div className="md:ml-32 ml-10"><FaStar size={20} color="gold" /></div>{rating}</div>
                   </div>
-                  <div className="ml-5">
+                  <div className="">
                     <h2 className="text-gray-400 truncate max-w-[200px]" title={hotel_name}>
                       {hotel_name}
                     </h2>

@@ -24,7 +24,7 @@ const ProductDescription = () => {
         const formattedCheckOut = checkOutDate ? format(checkOutDate, 'yyyy-MM-dd') : format(defaultCheckOut, 'yyyy-MM-dd');
 
         try {
-          const response = await axios.get('http://127.0.0.1:8000/api/foreignApartments/details', {
+          const response = await axios.get('http://api.sky-swift.com/api/foreignApartments/details', {
             params: {
               hotel_id: hotel_id,
               arrival_date: formattedCheckIn,
@@ -103,7 +103,7 @@ const ProductDescription = () => {
           {singleId[0] && (
             <>
               <h1 className="text-2xl font-semibold ml-24 mb-4 truncate max-w-[800px]">
-                {singleId[0].typeofplace}, {singleId[0].hotel_name}
+                {singleId[0].typeofplace} {singleId[0].hotel_name}
               </h1>
               <img
                 src={getImage(singleId[0].main_photo_url)}

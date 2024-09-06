@@ -4,9 +4,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '../datepicker.css';
 import { addDays, format } from 'date-fns';
 import data from '../Data/data';
-import { SearchContext } from '../Contexts/SearchContext';
 import axios from 'axios';
-
+import { ClipLoader } from 'react-spinners';
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookingForm = ({ setHotels, setHasSearched }) => {
   const [checkInDate, setCheckInDate] = useState(null);
@@ -14,12 +16,14 @@ const BookingForm = ({ setHotels, setHasSearched }) => {
   const [location, setLocation] = useState('');
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   const onChange = (event) => {
     setLocation(event.target.value);
   }
 
   const onSearch = async (searchTerm) => {
+    setIsSearching(true);
     const defaultCheckIn = addDays(new Date(), 1);
     const defaultCheckOut = addDays(defaultCheckIn, 7);
 
@@ -34,7 +38,7 @@ const BookingForm = ({ setHotels, setHasSearched }) => {
     if (selectedLocation) {
       try {
 
-        const response = await axios.get('http://127.0.0.1:8000/api/foreignApartments', {
+        const response = await axios.get('http://api.sky-swift.com/api/foreignApartments', {
           params: {
             latitude: selectedLocation.lat,
             longitude: selectedLocation.lng,
@@ -46,14 +50,39 @@ const BookingForm = ({ setHotels, setHasSearched }) => {
         setHasSearched(true);
         // console.log(response.data);
       } catch (error) {
+        console.error('Error Searching for Apartments', error);
+        toast.error('An error occurred while searching. Please try again.');
+      } finally {
+        setIsSearching(false);
       }
     } else {
+      setIsSearching(false);
     }
   }
 
   return (
-    <div className="md:absolute md:top-[320px]  flex flex-col md:left-[150px] bg-white font-luxjost justify-center p-4 md:p-6 shadow-xl mt-10 rounded-3xl mx-3 md:mx-20  max-w-full">
+    <div className="md:absolute 
+  md:top-[320px] 
+  md:left-1/2 
+  md:transform 
+  md:-translate-x-1/2 
+  flex 
+  flex-col 
+  bg-white 
+  font-luxjost 
+  justify-center 
+  p-4 
+  md:p-6 
+  shadow-xl 
+  mt-10 
+  rounded-3xl 
+  z-30
+  mx-3 
+  md:mx-0
+  max-w-full
+  md:max-w-[calc(100%-40px)]">
       <p className='md:mr-auto p-1 font-bold text-3xl text-orange-600'>Book Now</p>
+      <p className='md:mr-auto p-1  text-lg text-orange-600'>Welcome to Your Home Away From Home</p>
       <div className="flex flex-col md:flex-row ">
         <div className="flex flex-col md:flex-row mb-4 md:mb-0 w-full md:space-x-4">
           <input
@@ -75,20 +104,20 @@ const BookingForm = ({ setHotels, setHasSearched }) => {
                 .map((item, index) => (
                   <div
                     key={index}
-                    className='dropdown-row p-2 hover:bg-gray-100 cursor-pointer'
+                    className='dropdown-row p-2 hover:bg-gray-100 cursor-pointer flex items-center'
                     onClick={() => {
                       setLocation(item.city);
                       setSelectedLocation(item);
                       setShowDropdown(false);
                     }}
                   >
-                    {item.city}, {item.country}
+                    <FaMapMarkerAlt size={15} color="#c3c3c3" /> <span className="ml-1">{item.city}, {item.country}</span>
                   </div>
                 ))
               }
             </div>
           )}
-          <DatePicker
+          {/* <DatePicker
             selected={checkInDate}
             onChange={(date) => setCheckInDate(date)}
             selectsStart
@@ -110,8 +139,19 @@ const BookingForm = ({ setHotels, setHasSearched }) => {
             className="p-2 border border-gray-300 w-full h-14 md:h-14  rounded-lg md:flex-1 mb-4 md:mb-0 md:rounded-r-lg"
             calendarClassName="custom-datepicker"
             dateFormat="yyyy-MM-dd"
-          />
-          <button onClick={() => onSearch(location)} className="p-2 bg-orange-600 text-white h-14 w-full md:w-32 rounded-lg ml-0 md:ml-2">Find a House</button>
+          /> */}
+          <button
+            onClick={() => onSearch(location)}
+            className="p-2 bg-orange-600 text-white h-14 w-full md:w-32 rounded-lg ml-0 md:ml-2 flex items-center justify-center"
+            disabled={isSearching}
+          >
+            {isSearching ? (
+              <ClipLoader color="#ffffff" size={20} />
+            ) : (
+              'Find a House'
+            )}
+          </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
